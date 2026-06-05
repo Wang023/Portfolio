@@ -287,10 +287,10 @@ nav ul{
     .hamburger {
         display: flex;
     }
-
+/*
     .nav-links {
         display: flex;
-        left: 100%;/*hidden offcanvas*/
+        left: 100%;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
@@ -313,6 +313,35 @@ nav ul{
         -ms-transform: translateX(-55%);
         -o-transform: translateX(-55%);
 }
+*/
+        /* 1. Base Off-Screen State */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: absolute;
+        top: 100%;
+        
+        /* Pin it perfectly to the right edge */
+        right: 0; 
+        width: 100vw;
+        background-color: #f7faf9aa;
+        backdrop-filter: blur(8px);
+        padding: 2rem 0;
+        margin-top: 2rem;
+        z-index: 100;
+        
+        /* Push it completely off-screen using hardware-accelerated transform */
+        transform: translateX(100%);
+        transition: transform .3s ease;
+    }
+
+    /* 2. On-Screen Opened State */
+    .nav-links.open {
+        /* Bring it smoothly back to its default right: 0 anchoring point */
+        transform: translateX(0);
+    }
 
     .nav-links li {
         margin-left: 0;
