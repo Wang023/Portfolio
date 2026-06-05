@@ -288,7 +288,7 @@ nav ul{
     .hamburger {
         display: flex;
     }
-/*
+
     .nav-links {
         display: flex;
         left: 100%;
@@ -314,44 +314,7 @@ nav ul{
         -ms-transform: translateX(-55%);
         -o-transform: translateX(-55%);
 }
-*/
-        /* 1. Base Off-Screen State */
-    .nav-links {
-        .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        
-        /* CHANGE 1: Bind it to the screen window, not the header */
-        position: fixed;
-        
-        /* CHANGE 2: Define exact screen placement coordinates */
-        top: 4rem; /* Matches your header height (.my-header { height: 8rem }) */
-        right: 0;
-        bottom: 0; /* Stretches the menu all the way to the bottom of the screen */
-        width: 100%; 
-        
-        background-color: #f7faf9aa;
-        backdrop-filter: blur(8px);
-        padding: 2rem 0;
-        z-index: 100;
-        
-        /* Perfectly handles off-screen state */
-        transform: translateX(100%);
-        transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
 
-
-    /* 2. On-Screen Opened State */
-    .nav-links.open {
-        /* Bring it smoothly back to its default right: 0 anchoring point */
-        transform: translateX(0);
-    }
-
-    .nav-links li {
-        margin-left: 0;
-    }
 
     /* animation for links */
     .nav-links.open .link{
